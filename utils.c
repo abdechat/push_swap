@@ -113,8 +113,31 @@ void pb(t_stack *stack_a, t_stack *stack_b)
 	push_top(stack_b,node);
 }
 
+void ra(t_stack *stack)
+{
+	t_list *node;
 
+	if (!stack || stack->size < 2)
+		return ;
+	node = stack->top;
+	stack->top = node->next;
+	stack->top->prev = NULL;
+	push_bottom(stack, node);
+	stack->size--;
+}
 
+void rb(t_stack *stack)
+{
+	t_list *node;
+
+	if (!stack || stack->size < 2)
+		return ;
+	node = stack->top;
+	stack->top = node->next;
+	stack->top->prev = NULL;
+	push_bottom(stack, node);
+	stack->size--;
+}
 
 
 
